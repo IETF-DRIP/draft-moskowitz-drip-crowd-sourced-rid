@@ -9,6 +9,8 @@ Expires: November 21, 2020                               A. Wiethuechter
                                                            AX Enterprize
                                                                  S. Zhao
                                                                  Tencent
+                                                             H. Birkholz
+                                                          Fraunhofer SIT
                                                             May 20, 2020
 
 
@@ -47,9 +49,7 @@ Copyright Notice
    Copyright (c) 2020 IETF Trust and the persons identified as the
    document authors.  All rights reserved.
 
-   This document is subject to BCP 78 and the IETF Trust's Legal
-   Provisions Relating to IETF Documents
-   (https://trustee.ietf.org/license-info) in effect on the date of
+
 
 
 
@@ -58,6 +58,9 @@ Moskowitz, et al.       Expires November 21, 2020               [Page 1]
 Internet-Draft                   CS-RID                         May 2020
 
 
+   This document is subject to BCP 78 and the IETF Trust's Legal
+   Provisions Relating to IETF Documents
+   (https://trustee.ietf.org/license-info) in effect on the date of
    publication of this document.  Please review these documents
    carefully, as they describe your rights and restrictions with respect
    to this document.  Code Components extracted from this document must
@@ -101,9 +104,6 @@ Table of Contents
    Appendix A.  Using LIDAR for UA location  . . . . . . . . . . . .  18
    Acknowledgments . . . . . . . . . . . . . . . . . . . . . . . . .  19
    Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  19
-
-
-
 
 
 
@@ -1062,3 +1062,59 @@ Authors' Addresses
 
 
 Moskowitz, et al.       Expires November 21, 2020              [Page 19]
+
+Internet-Draft                   CS-RID                         May 2020
+
+
+   Henk Birkholz
+   Fraunhofer SIT
+   Rheinstrasse 75
+   Darmstadt  64295
+   Germany
+
+   Email: henk.birkholz@sit.fraunhofer.de
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Moskowitz, et al.       Expires November 21, 2020              [Page 20]

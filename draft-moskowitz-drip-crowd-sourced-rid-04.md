@@ -58,6 +58,15 @@ author:
   code: '94306'
   country: USA
   email: shuai.zhao@ieee.org
+- ins: H. Birkholz
+  name: Henk Birkholz
+  org: Fraunhofer SIT
+  abbrev: Fraunhofer SIT
+  email: henk.birkholz@sit.fraunhofer.de
+  street: Rheinstrasse 75
+  code: '64295'
+  city: Darmstadt
+  country: Germany
 normative:
   RFC8610:
 informative:

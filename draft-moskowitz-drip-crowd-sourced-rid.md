@@ -178,6 +178,8 @@ need work.
 
 ## Definitions
 
+{: vspace="0"}
+
 B-RID:
 
 : Broadcast Remote ID. A method of sending RID messages as

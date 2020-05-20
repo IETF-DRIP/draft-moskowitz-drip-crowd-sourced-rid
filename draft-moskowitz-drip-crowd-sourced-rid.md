@@ -1,7 +1,7 @@
 ---
 stand_alone: true
 ipr: trust200902
-docname: draft-moskowitz-drip-crowd-sourced-rid-04
+docname: draft-moskowitz-drip-crowd-sourced-rid-latest
 cat: std
 obsoletes: ''
 updates: ''
@@ -68,7 +68,7 @@ author:
   city: Darmstadt
   country: Germany
 normative:
-  RFC8610:
+  RFC8610: CDDL
 informative:
   F3411-19:
     target: http://www.astm.org/cgi-bin/resolver.cgi?F3411
@@ -85,16 +85,15 @@ informative:
   tmrid-auth: I-D.wiethuechter-tmrid-auth
   hierarchical-hit: I-D.moskowitz-hip-hierarchical-hit
   hhit-registries: I-D.moskowitz-hip-hhit-registries
-  RFC7252:
-  RFC5238:
-  RFC4303:
-  RFC7401:
-  RFC7049:
-  RFC8152:
-  RFC8032:
+  RFC7252: COAP
+  RFC5238: DTLS
+  RFC4303: ESP
+  RFC7401: HIPv2
+  RFC7049: CBOR
+  RFC8152: COSE
+  RFC8032: EDDSA
 
 --- abstract
-
 
 This document describes using the ASTM Broadcast Remote ID (B-RID)
 specification in a "crowd sourced" smart phone environment to
@@ -172,114 +171,124 @@ This draft is still incomplete.  New features are being added as
 capabilities are researched.  The actual message formats also still
 need work.
 
-
-
 # Terms and Definitions {#terms}
 
 ## Requirements Terminology
 
 {::boilerplate bcp14}
 
-
 ## Definitions
 
-{: vspace='0'}
+B-RID:
 
-B-RID
 : Broadcast Remote ID. A method of sending RID messages as
   1-way transmissions from the UA to any Observers within
   radio range.
 
-CAA
+CAA:
+
 : Civil Aeronautics Administration. An example is the Federal
   Aviation Administration (FAA) in the United States of
   America.
 
-DAA
+DAA:
+
 : Detect and Avoid. The process of a UA detecting obstacles,
   like other UAs and taking the necessary evasive action.
 
-ECIES
+ECIES:
+
 : Elliptic Curve Integrated Encryption Scheme.  A hybrid
   encryption scheme which provides semantic security against
   an adversary who is allowed to use chosen-plaintext and
   chosen-ciphertext attacks.
 
-GCS
+GCS:
+
 : Ground Control Station. The part of the UAS that the remote
   pilot uses to exercise C2 over the UA, whether by remotely
   exercising UA flight controls to fly the UA, by setting GPS
   waypoints, or otherwise directing its flight.
 
-Finder
+Finder:
+
 : In Internet connected device that can receive B-RID
   messages and forward them to a UTM.
 
-Observer
+Observer:
+
 : Referred to in other UAS documents as a "user", but there
   are also other classes of RID users, so we prefer
   "observer" to denote an individual who has observed an UA
   and wishes to know something about it, starting with its
   RID.
 
-Multilateration
+Multilateration:
+
 : Multilateration (more completely, pseudo range
   multilateration) is a navigation and surveillance technique
   based on measurement of the times of arrival (TOAs) of
   energy waves (radio, acoustic, seismic, etc.) having a
   known propagation speed.
 
-NETSP
+NETSP:
+
 : Network RID Service Provider. USS receiving Network RID
   messages from UAS (UA or GCS), storing for a short
   specified time, making available to NETDP.
 
-NETDP
+NETDP:
+
 : Network RID Display Provider. Entity (might be USS)
   aggregating data from multiple NETSPs to answer query from
   observer (or other party) desiring Situational Awareness of
   UAS operating in a specific airspace volume.
 
-N-RID
+N-RID:
+
 : Network Remote ID. A method of sending RID messages via the
   Internet connection of the UAS directly to the UTM.
 
-RID
+RID:
+
 : Remote ID. A unique identifier found on all UA to be used
   in communication and in regulation of UA operation.
 
-SDSP
+SDSP:
+
 : Supplemental Data Service Provider. Entity providing
   information that is allowed, but not required to be present
   in the UTM system.
 
-UA
+UA:
+
 : Unmanned Aircraft. In this document UA's are typically
   though of as drones of commercial or military variety. This
   is a very strict definition which can be relaxed to include
   any and all aircraft that are unmanned.
 
-UAS
+UAS:
+
 : Unmanned Aircraft System. Composed of Unmanned Aircraft and
   all required on-board subsystems, payload, control station,
   other required off-board subsystems, any required launch
   and recovery equipment, all required crew members, and C2
   links between UA and the control station.
 
-UTM
+UTM:
+
 : UAS Traffic Management. A "traffic management" ecosystem
   for uncontrolled operations that is separate from, but
   complementary to, the FAA's Air Traffic Management (ATM)
   system.
 
-USS
+USS:
+
 : UAS Service Supplier. Provide UTM services to support the
   UAS community, to connect Operators and other entities to
   enable information flow across the USS network, and to
   promote shared situational awareness among UTM
   participants. (From FAA UTM ConOps V1, May 2018).
-
-
 
 # Problem Space {#prob-space}
 
@@ -301,7 +310,6 @@ meaningful N-RID (via the Pilot's smartphone) are of limited value.
 A mechanism that can augment B-RID to provide N-RID would help all
 members of the UAS environment to provide safe operation and allow
 for new applications.
-
 
 ## Advantages of Broadcast Remote ID
 
@@ -339,7 +347,6 @@ The SPDP can manage the number of Finders in an area (see
 {{Finder_Manage}}) to limit DOS attacks
 from a group of clustered Finders.
 
-
 ## Defense against fraudulent RID Messages
 
 The strongest defense against fraudulent RID messages is to focus
@@ -347,11 +354,9 @@ on {{tmrid-auth}} conforming messages.  Unless this behavior is
 mandated, SPDPs will have to use assorted algorithms to isolate
 messages of questionable content.
 
-
-
 # The Finder - SDSP Security Relationship {#Finder_Sec}
 
-The SDSP(s) and Finders SHOULD use [EDDSA](#RFC8032) keys as their
+The SDSP(s) and Finders SHOULD use EDDSA {{-EDDSA}} keys as their
 trusted Identities.
 The public keys SHOULD be registered Hierarchical HITS,
 {{hierarchical-hit}} and {{hhit-registries}}.
@@ -370,11 +375,11 @@ Finder to the SDSP.
   each message sent from a Finder to the SDSP sent during
   that period.
 
-1.  [HIPv2](#RFC7401) can be used to
-  establish a session secret that is then used with [ESP](#RFC4303) 
+1. HIPv2 {{-HIPv2}} can be used to
+  establish a session secret that is then used with ESP {{-ESP}} 
   to authenticate each message sent from a Finder to the SDSP.
 
-1.  [DTLS](#RFC5238) can be used to establish
+1. DTLS {{-DTLS}}  can be used to establish
   a secure connection that is then used to authenticate each
   message sent from a Finder to the SDSP.
 
@@ -384,7 +389,6 @@ The Finders are regularly providing their SDSP with their location.
 This is through the B-RID Proxy Messages and Finder Location Update
 Messages.  With this information, the SDSP can maintain a
 monitoring map.  That is a map of where there Finder coverage.
-
 
 ## Managing Finders {#Finder_Manage}
 
@@ -404,17 +408,16 @@ the same location (perhaps a connected car or a pedestrian on a
 bus) would not be asked to suspend proxying as it will soon be out
 of the congested area.
 
-
 # The CS-RID Messages {#CSRID_messages}
 
 The CS-RID messages between the Finders and the SDSPs primarily
 support the proxy role of the Finders in forwarding the B-RID
 messages.  There are also Finder registration and status messages.
 
-CS-RID information is represented in CBOR {{RFC7049}}.
-The CDDL [RFC8610] specification is used for CS-RID message description 
-for hunman-readable representation. COSE {{RFC8152}} may be used for 
-CS-RID MAC and COAP {{RFC7252}} for the CS-RID protocol.
+CS-RID information is represented in CBOR {{-CBOR}}.
+The CDDL {{-CDDL}} specification is used for CS-RID message description 
+
+CS-RID MAC and COAP {{-COAP}} for the CS-RID protocol.
 
 The following is a general representation of the content in the
 CS-RID messages.
@@ -733,7 +736,6 @@ The CDDL for CS-RID Location update is defined in {{csrid-location-update}}
 
 TBD
 
-
 # Security Considerations
 
 TBD
@@ -741,8 +743,6 @@ TBD
 ## Privacy Concerns
 
 TBD
-
-
 
 --- back
 
@@ -777,11 +777,9 @@ varying from 20M to 250M.  Would more than UA location information
 be available?  What information can be sent in a CS-RID message for
 such "unmarked" UAs?
 
-
 # Acknowledgments
 {: numbered="no"}
 
 The Crowd Sourcing idea in this document came from the Apple "Find
 My Device" presentation at the International Association for
 Cryptographic Research's Real World Crypto 2020 conference.
-

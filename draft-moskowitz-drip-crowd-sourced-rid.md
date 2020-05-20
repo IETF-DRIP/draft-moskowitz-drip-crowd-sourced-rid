@@ -90,7 +90,6 @@ informative:
   RFC4303: ESP
   RFC7401: HIPv2
   RFC7049: CBOR
-  RFC8152: COSE
   RFC8032: EDDSA
 
 --- abstract
@@ -375,7 +374,7 @@ Finder to the SDSP.
   that period.
 
 1. HIPv2 {{-HIPv2}} can be used to
-  establish a session secret that is then used with ESP {{-ESP}} 
+  establish a session secret that is then used with ESP {{-ESP}}
   to authenticate each message sent from a Finder to the SDSP.
 
 1. DTLS {{-DTLS}}  can be used to establish
@@ -414,7 +413,7 @@ support the proxy role of the Finders in forwarding the B-RID
 messages.  There are also Finder registration and status messages.
 
 CS-RID information is represented in CBOR {{-CBOR}}.
-The CDDL {{-CDDL}} specification is used for CS-RID message description 
+The CDDL {{-CDDL}} specification is used for CS-RID message description
 
 CS-RID MAC and COAP {{-COAP}} for the CS-RID protocol.
 
@@ -422,7 +421,7 @@ The following is a general representation of the content in the
 CS-RID messages.
 
 ~~~~
-  (   
+  (
     CS-RID MESSAGE TYPE,
     CS-RID MESSAGE CONTENT,
     CS-RID MAC
@@ -448,7 +447,7 @@ The CS-RID MESSAGE TYPE is defined in {{csrid-message}}:
 
 ### CDDL description for CS-RID message type
 
-The overall CS-RID CDDL description is structured in {{csrid-object}}. 
+The overall CS-RID CDDL description is structured in {{csrid-object}}.
 
 ~~~~
 CSRID_Object = {
@@ -480,8 +479,8 @@ message_types = &(
 ~~~~
 {: #csrid-object}
 
-The application context rule is defined in {{csrid-app-context}} for 
-CS-RID application identification and version negotiation. 
+The application context rule is defined in {{csrid-app-context}} for
+CS-RID application identification and version negotiation.
 
 ~~~~
 application-context = (
@@ -536,7 +535,7 @@ The following is a representation of the content in the CS-RID
 messages.
 
 ~~~~
-  (   
+  (
     CS-RID MESSAGE TYPE,
     CS-RID ID,
     RECEIVE TIMESTAMP,
@@ -608,7 +607,7 @@ CS-RID B-RID Proxy Messages.  In this case the Finder Registration
 Message is:
 
 ~~~~
-  (   
+  (
     CS-RID MESSAGE TYPE,
     CS-RID ID,
     CS-RID TIMESTAMP,
@@ -641,7 +640,7 @@ The SDSP MAY respond to any Finder messages to instruct the Finder on its
 behavior.
 
 ~~~~
-  (   
+  (
     CS-RID MESSAGE TYPE,
     SDSP ID,
     CS-RID ID,
@@ -696,7 +695,7 @@ If the Finder has not recieved a SDSP Registration Response, a
 default of 5 minutes is used for the Update Interval.
 
 ~~~~
-  (   
+  (
     CS-RID MESSAGE TYPE,
     CS-RID ID,
     CS-RID TIMESTAMP,

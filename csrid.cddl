@@ -15,10 +15,10 @@ CSRID_Object = {
 }
 
 ;
-; Application context: general information about CSRID message (optional
+; Application context: general information about CSRID message 
 
 application-context = (
-    application => "DRIP-CSRID", ; TBD: consider CBOR tag as replacement
+    application => "DRIP-CSRID", ; TBD: consider CBOR tag 
     ? version => uint .size(1..2),
 )
 

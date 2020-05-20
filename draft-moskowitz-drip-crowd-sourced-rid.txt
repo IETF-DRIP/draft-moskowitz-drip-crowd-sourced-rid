@@ -851,10 +851,10 @@ Internet-Draft                   CS-RID                         May 2020
    }
 
    ;
-   ; Application context: general information about CSRID message (optional
+   ; Application context: general information about CSRID message
 
    application-context = (
-       application => "DRIP-CSRID", ; TBD: consider CBOR tag as replacement
+       application => "DRIP-CSRID", ; TBD: consider CBOR tag
        ? version => uint .size(1..2),
    )
 
@@ -1081,10 +1081,6 @@ Internet-Draft                   CS-RID                         May 2020
               DOI 10.17487/RFC8032, January 2017,
               <https://www.rfc-editor.org/info/rfc8032>.
 
-   [RFC8152]  Schaad, J., "CBOR Object Signing and Encryption (COSE)",
-              RFC 8152, DOI 10.17487/RFC8152, July 2017,
-              <https://www.rfc-editor.org/info/rfc8152>.
-
    [tmrid-auth]
               Wiethuechter, A., Card, S., and R. Moskowitz, "TM-RID
               Authentication Formats", Work in Progress, Internet-Draft,
@@ -1114,6 +1110,10 @@ Appendix A.  Using LIDAR for UA location
    A seemingly non-participating UA may actually be a UA that is beyond
    range for its B-RID but in the LIDAR range.
 
+   This would provide valuable information to SDSPs to forward to UTMs
+   on potential at-risk situations.
+
+
 
 
 
@@ -1121,9 +1121,6 @@ Moskowitz, et al.       Expires 21 November 2020               [Page 20]
 
 Internet-Draft                   CS-RID                         May 2020
 
-
-   This would provide valuable information to SDSPs to forward to UTMs
-   on potential at-risk situations.
 
    At this time, research on LIDAR and other detection technology is
    needed.  there are full-sky LIDAR for automotive use with ranges
@@ -1165,19 +1162,6 @@ Authors' Addresses
    Email: adam.wiethuechter@axenterprize.com
 
 
-
-
-
-
-
-
-
-
-Moskowitz, et al.       Expires 21 November 2020               [Page 21]
-
-Internet-Draft                   CS-RID                         May 2020
-
-
    Shuai Zhao
    Tencent
    2747 Park Blvd
@@ -1187,6 +1171,13 @@ Internet-Draft                   CS-RID                         May 2020
    Email: shuai.zhao@ieee.org
 
 
+
+
+Moskowitz, et al.       Expires 21 November 2020               [Page 21]
+
+Internet-Draft                   CS-RID                         May 2020
+
+
    Henk Birkholz
    Fraunhofer SIT
    Rheinstrasse 75
@@ -1194,6 +1185,15 @@ Internet-Draft                   CS-RID                         May 2020
    Germany
 
    Email: henk.birkholz@sit.fraunhofer.de
+
+
+
+
+
+
+
+
+
 
 
 

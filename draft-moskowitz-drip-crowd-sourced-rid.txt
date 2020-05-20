@@ -88,13 +88,13 @@ Table of Contents
      2.2.  Definitions . . . . . . . . . . . . . . . . . . . . . . .   4
    3.  Problem Space . . . . . . . . . . . . . . . . . . . . . . . .   6
      3.1.  Meeting the needs of Network ID . . . . . . . . . . . . .   6
-     3.2.  Advantages of Broadcast Remote ID . . . . . . . . . . . .   6
+     3.2.  Advantages of Broadcast Remote ID . . . . . . . . . . . .   7
      3.3.  Trustworthiness of Proxied Data . . . . . . . . . . . . .   7
      3.4.  Defense against fraudulent RID Messages . . . . . . . . .   7
-   4.  The Finder - SDSP Security Relationship . . . . . . . . . . .   7
+   4.  The Finder - SDSP Security Relationship . . . . . . . . . . .   8
      4.1.  The Finder Map  . . . . . . . . . . . . . . . . . . . . .   8
      4.2.  Managing Finders  . . . . . . . . . . . . . . . . . . . .   8
-   5.  The CS-RID Messages . . . . . . . . . . . . . . . . . . . . .   8
+   5.  The CS-RID Messages . . . . . . . . . . . . . . . . . . . . .   9
      5.1.  CS-RID MESSAGE TYPE . . . . . . . . . . . . . . . . . . .   9
        5.1.1.  CDDL description for CS-RID message type  . . . . . .   9
      5.2.  The CS-RID B-RID Proxy Message  . . . . . . . . . . . . .  11
@@ -215,9 +215,9 @@ Internet-Draft                   CS-RID                         May 2020
 
 2.2.  Definitions
 
-   B-RID:  Broadcast Remote ID.  A method of sending RID messages as
-      1-way transmissions from the UA to any Observers within radio
-      range.
+   B-RID:
+      Broadcast Remote ID.  A method of sending RID messages as 1-way
+      transmissions from the UA to any Observers within radio range.
 
 
 
@@ -226,53 +226,53 @@ Moskowitz, et al.       Expires 21 November 2020                [Page 4]
 Internet-Draft                   CS-RID                         May 2020
 
 
-   CAA:  Civil Aeronautics Administration.  An example is the Federal
+   CAA:
+      Civil Aeronautics Administration.  An example is the Federal
       Aviation Administration (FAA) in the United States of America.
 
-   DAA:  Detect and Avoid.  The process of a UA detecting obstacles,
-      like other UAs and taking the necessary evasive action.
+   DAA:
+      Detect and Avoid.  The process of a UA detecting obstacles, like
+      other UAs and taking the necessary evasive action.
 
-   ECIES:  Elliptic Curve Integrated Encryption Scheme.  A hybrid
-      encryption scheme which provides semantic security against an
-      adversary who is allowed to use chosen-plaintext and chosen-
-      ciphertext attacks.
+   ECIES:
+      Elliptic Curve Integrated Encryption Scheme.  A hybrid encryption
+      scheme which provides semantic security against an adversary who
+      is allowed to use chosen-plaintext and chosen-ciphertext attacks.
 
-   GCS:  Ground Control Station.  The part of the UAS that the remote
-      pilot uses to exercise C2 over the UA, whether by remotely
-      exercising UA flight controls to fly the UA, by setting GPS
-      waypoints, or otherwise directing its flight.
+   GCS:
+      Ground Control Station.  The part of the UAS that the remote pilot
+      uses to exercise C2 over the UA, whether by remotely exercising UA
+      flight controls to fly the UA, by setting GPS waypoints, or
+      otherwise directing its flight.
 
-   Finder:  In Internet connected device that can receive B-RID messages
-      and forward them to a UTM.
+   Finder:
+      In Internet connected device that can receive B-RID messages and
+      forward them to a UTM.
 
-   Observer:  Referred to in other UAS documents as a "user", but there
-      are also other classes of RID users, so we prefer "observer" to
-      denote an individual who has observed an UA and wishes to know
-      something about it, starting with its RID.
+   Observer:
+      Referred to in other UAS documents as a "user", but there are also
+      other classes of RID users, so we prefer "observer" to denote an
+      individual who has observed an UA and wishes to know something
+      about it, starting with its RID.
 
-   Multilateration:  Multilateration (more completely, pseudo range
-      multilateration) is a navigation and surveillance technique based
-      on measurement of the times of arrival (TOAs) of energy waves
-      (radio, acoustic, seismic, etc.) having a known propagation speed.
+   Multilateration:
+      Multilateration (more completely, pseudo range multilateration) is
+      a navigation and surveillance technique based on measurement of
+      the times of arrival (TOAs) of energy waves (radio, acoustic,
+      seismic, etc.) having a known propagation speed.
 
-   NETSP:  Network RID Service Provider.  USS receiving Network RID
-      messages from UAS (UA or GCS), storing for a short specified time,
-      making available to NETDP.
+   NETSP:
+      Network RID Service Provider.  USS receiving Network RID messages
+      from UAS (UA or GCS), storing for a short specified time, making
+      available to NETDP.
 
-   NETDP:  Network RID Display Provider.  Entity (might be USS)
-      aggregating data from multiple NETSPs to answer query from
-      observer (or other party) desiring Situational Awareness of UAS
-      operating in a specific airspace volume.
+   NETDP:
+      Network RID Display Provider.  Entity (might be USS) aggregating
+      data from multiple NETSPs to answer query from observer (or other
+      party) desiring Situational Awareness of UAS operating in a
+      specific airspace volume.
 
-   N-RID:  Network Remote ID.  A method of sending RID messages via the
-      Internet connection of the UAS directly to the UTM.
 
-   RID:  Remote ID.  A unique identifier found on all UA to be used in
-      communication and in regulation of UA operation.
-
-   SDSP:  Supplemental Data Service Provider.  Entity providing
-      information that is allowed, but not required to be present in the
-      UTM system.
 
 
 
@@ -282,22 +282,38 @@ Moskowitz, et al.       Expires 21 November 2020                [Page 5]
 Internet-Draft                   CS-RID                         May 2020
 
 
-   UA:  Unmanned Aircraft.  In this document UA's are typically though
-      of as drones of commercial or military variety.  This is a very
+   N-RID:
+      Network Remote ID.  A method of sending RID messages via the
+      Internet connection of the UAS directly to the UTM.
+
+   RID:
+      Remote ID.  A unique identifier found on all UA to be used in
+      communication and in regulation of UA operation.
+
+   SDSP:
+      Supplemental Data Service Provider.  Entity providing information
+      that is allowed, but not required to be present in the UTM system.
+
+   UA:
+      Unmanned Aircraft.  In this document UA's are typically though of
+      as drones of commercial or military variety.  This is a very
       strict definition which can be relaxed to include any and all
       aircraft that are unmanned.
 
-   UAS:  Unmanned Aircraft System.  Composed of Unmanned Aircraft and
-      all required on-board subsystems, payload, control station, other
+   UAS:
+      Unmanned Aircraft System.  Composed of Unmanned Aircraft and all
+      required on-board subsystems, payload, control station, other
       required off-board subsystems, any required launch and recovery
       equipment, all required crew members, and C2 links between UA and
       the control station.
 
-   UTM:  UAS Traffic Management.  A "traffic management" ecosystem for
+   UTM:
+      UAS Traffic Management.  A "traffic management" ecosystem for
       uncontrolled operations that is separate from, but complementary
       to, the FAA's Air Traffic Management (ATM) system.
 
-   USS:  UAS Service Supplier.  Provide UTM services to support the UAS
+   USS:
+      UAS Service Supplier.  Provide UTM services to support the UAS
       community, to connect Operators and other entities to enable
       information flow across the USS network, and to promote shared
       situational awareness among UTM participants.  (From FAA UTM
@@ -314,6 +330,14 @@ Internet-Draft                   CS-RID                         May 2020
    provides only Network RID.  The FAA has dropped their previous
    position on allowing for only Broadcast RID.  We can guess as to
    their reasons; they are not spelled out in the NPRM.  It may be that
+
+
+
+Moskowitz, et al.       Expires 21 November 2020                [Page 6]
+
+Internet-Draft                   CS-RID                         May 2020
+
+
    just B-RID does not meet the FAA's statutory UA tracking
    responsibility.
 
@@ -330,13 +354,6 @@ Internet-Draft                   CS-RID                         May 2020
    *  B-RID can more readily be implemented directly in the UA.  N-RID
       will more frequently be provided by the GCS or a pilot's Internet
       connected device.
-
-
-
-Moskowitz, et al.       Expires 21 November 2020                [Page 6]
-
-Internet-Draft                   CS-RID                         May 2020
-
 
       -  If Command and Control (C2) is bi-directional over a direct
          radio connection, B-RID could be a straight-forward addition.
@@ -370,6 +387,13 @@ Internet-Draft                   CS-RID                         May 2020
    SPDPs will have to use assorted algorithms to isolate messages of
    questionable content.
 
+
+
+Moskowitz, et al.       Expires 21 November 2020                [Page 7]
+
+Internet-Draft                   CS-RID                         May 2020
+
+
 4.  The Finder - SDSP Security Relationship
 
    The SDSP(s) and Finders SHOULD use EDDSA [RFC8032] keys as their
@@ -384,15 +408,6 @@ Internet-Draft                   CS-RID                         May 2020
 
    1.  ECIES can be used with a unique nonce to authenticate each
        message sent from a Finder to the SDSP.
-
-
-
-
-
-Moskowitz, et al.       Expires 21 November 2020                [Page 7]
-
-Internet-Draft                   CS-RID                         May 2020
-
 
    2.  ECIES can be used at the start of some period (e.g. day) to
        establish a shared secret that is then used to authenticate each
@@ -427,6 +442,14 @@ Internet-Draft                   CS-RID                         May 2020
    to again take on the proxying role.  For example a Finder moving
    slowly along with dozens of other slow-moving Finders may be
    instructed to suspend proxying.  Whereas a fast-moving Finder at the
+
+
+
+Moskowitz, et al.       Expires 21 November 2020                [Page 8]
+
+Internet-Draft                   CS-RID                         May 2020
+
+
    same location (perhaps a connected car or a pedestrian on a bus)
    would not be asked to suspend proxying as it will soon be out of the
    congested area.
@@ -441,14 +464,6 @@ Internet-Draft                   CS-RID                         May 2020
    [RFC8610] specification is used for CS-RID message description
 
    CS-RID MAC and COAP [RFC7252] for the CS-RID protocol.
-
-
-
-
-Moskowitz, et al.       Expires 21 November 2020                [Page 8]
-
-Internet-Draft                   CS-RID                         May 2020
-
 
    The following is a general representation of the content in the CS-
    RID messages.
@@ -478,21 +493,6 @@ Internet-Draft                   CS-RID                         May 2020
 5.1.1.  CDDL description for CS-RID message type
 
    The overall CS-RID CDDL description is structured in Figure 2.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

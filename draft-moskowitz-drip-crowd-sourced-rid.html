@@ -9,6 +9,7 @@
 <meta content="Stuart W. Card" name="author">
 <meta content="Adam Wiethuechter" name="author">
 <meta content="Shuai Zhao" name="author">
+<meta content="Henk Birkholz" name="author">
 <meta content='
        This document describes using the ASTM Broadcast Remote ID (B-RID)
 specification in a "crowd sourced" smart phone environment to
@@ -877,6 +878,10 @@ table.left {
       <div class="author-name">S. Zhao</div>
 <div class="org">Tencent</div>
 </div>
+<div class="author">
+      <div class="author-name">H. Birkholz</div>
+<div class="org">Fraunhofer SIT</div>
+</div>
 </dd>
 </dl>
 </div>
@@ -1002,6 +1007,11 @@ also provide a monitoring coverage map to authorized observers.<a href="#section
 <ul class="toc ulEmpty">
 <li class="toc ulEmpty" id="section-toc.1-1.5.2.1">
                 <p id="section-toc.1-1.5.2.1.1"><a href="#section-5.1" class="xref">5.1</a>.  <a href="#name-cs-rid-message-type" class="xref">CS-RID MESSAGE TYPE</a><a href="#section-toc.1-1.5.2.1.1" class="pilcrow">¶</a></p>
+<ul class="toc ulEmpty">
+<li class="toc ulEmpty" id="section-toc.1-1.5.2.1.2.1">
+                    <p id="section-toc.1-1.5.2.1.2.1.1"><a href="#section-5.1.1" class="xref">5.1.1</a>.  <a href="#name-cddl-description-for-cs-rid" class="xref">CDDL description for CS-RID message type</a><a href="#section-toc.1-1.5.2.1.2.1.1" class="pilcrow">¶</a></p>
+</li>
+</ul>
 </li>
 <li class="toc ulEmpty" id="section-toc.1-1.5.2.2">
                 <p id="section-toc.1-1.5.2.2.1"><a href="#section-5.2" class="xref">5.2</a>.  <a href="#name-the-cs-rid-b-rid-proxy-mess" class="xref">The CS-RID B-RID Proxy Message</a><a href="#section-toc.1-1.5.2.2.1" class="pilcrow">¶</a></p>
@@ -1009,52 +1019,70 @@ also provide a monitoring coverage map to authorized observers.<a href="#section
 <li class="toc ulEmpty" id="section-toc.1-1.5.2.2.2.1">
                     <p id="section-toc.1-1.5.2.2.2.1.1"><a href="#section-5.2.1" class="xref">5.2.1</a>.  <a href="#name-cs-rid-id" class="xref">CS-RID ID</a><a href="#section-toc.1-1.5.2.2.2.1.1" class="pilcrow">¶</a></p>
 </li>
+<li class="toc ulEmpty" id="section-toc.1-1.5.2.2.2.2">
+                    <p id="section-toc.1-1.5.2.2.2.2.1"><a href="#section-5.2.2" class="xref">5.2.2</a>.  <a href="#name-cddl-description-for-cs-rid-" class="xref">CDDL description for CS-RID B-RID Proxy Message</a><a href="#section-toc.1-1.5.2.2.2.2.1" class="pilcrow">¶</a></p>
+</li>
 </ul>
 </li>
 <li class="toc ulEmpty" id="section-toc.1-1.5.2.3">
                 <p id="section-toc.1-1.5.2.3.1"><a href="#section-5.3" class="xref">5.3</a>.  <a href="#name-cs-rid-finder-registration" class="xref">CS-RID Finder Registration</a><a href="#section-toc.1-1.5.2.3.1" class="pilcrow">¶</a></p>
+<ul class="toc ulEmpty">
+<li class="toc ulEmpty" id="section-toc.1-1.5.2.3.2.1">
+                    <p id="section-toc.1-1.5.2.3.2.1.1"><a href="#section-5.3.1" class="xref">5.3.1</a>.  <a href="#name-cddl-description-for-finder" class="xref">CDDL description for Finder Registration</a><a href="#section-toc.1-1.5.2.3.2.1.1" class="pilcrow">¶</a></p>
+</li>
+</ul>
 </li>
 <li class="toc ulEmpty" id="section-toc.1-1.5.2.4">
                 <p id="section-toc.1-1.5.2.4.1"><a href="#section-5.4" class="xref">5.4</a>.  <a href="#name-cs-rid-sdsp-response" class="xref">CS-RID SDSP Response</a><a href="#section-toc.1-1.5.2.4.1" class="pilcrow">¶</a></p>
+<ul class="toc ulEmpty">
+<li class="toc ulEmpty" id="section-toc.1-1.5.2.4.2.1">
+                    <p id="section-toc.1-1.5.2.4.2.1.1"><a href="#section-5.4.1" class="xref">5.4.1</a>.  <a href="#name-cddl-description-for-sdsp-r" class="xref">CDDL description for SDSP Response</a><a href="#section-toc.1-1.5.2.4.2.1.1" class="pilcrow">¶</a></p>
+</li>
+</ul>
 </li>
 <li class="toc ulEmpty" id="section-toc.1-1.5.2.5">
                 <p id="section-toc.1-1.5.2.5.1"><a href="#section-5.5" class="xref">5.5</a>.  <a href="#name-cs-rid-location-update" class="xref">CS-RID Location Update</a><a href="#section-toc.1-1.5.2.5.1" class="pilcrow">¶</a></p>
+<ul class="toc ulEmpty">
+<li class="toc ulEmpty" id="section-toc.1-1.5.2.5.2.1">
+                    <p id="section-toc.1-1.5.2.5.2.1.1"><a href="#section-5.5.1" class="xref">5.5.1</a>.  <a href="#name-cddl-description-for-locati" class="xref">CDDL description for Location Update</a><a href="#section-toc.1-1.5.2.5.2.1.1" class="pilcrow">¶</a></p>
+</li>
+</ul>
 </li>
 </ul>
 </li>
 <li class="toc ulEmpty" id="section-toc.1-1.6">
-            <p id="section-toc.1-1.6.1"><a href="#section-6" class="xref">6</a>.  <a href="#name-iana-considerations" class="xref">IANA Considerations</a><a href="#section-toc.1-1.6.1" class="pilcrow">¶</a></p>
+            <p id="section-toc.1-1.6.1"><a href="#section-6" class="xref">6</a>.  <a href="#name-the-full-cs-rid-cddl-specif" class="xref">The Full CS-RID CDDL specification</a><a href="#section-toc.1-1.6.1" class="pilcrow">¶</a></p>
 </li>
 <li class="toc ulEmpty" id="section-toc.1-1.7">
-            <p id="section-toc.1-1.7.1"><a href="#section-7" class="xref">7</a>.  <a href="#name-security-considerations" class="xref">Security Considerations</a><a href="#section-toc.1-1.7.1" class="pilcrow">¶</a></p>
-<ul class="toc ulEmpty">
-<li class="toc ulEmpty" id="section-toc.1-1.7.2.1">
-                <p id="section-toc.1-1.7.2.1.1"><a href="#section-7.1" class="xref">7.1</a>.  <a href="#name-privacy-concerns" class="xref">Privacy Concerns</a><a href="#section-toc.1-1.7.2.1.1" class="pilcrow">¶</a></p>
-</li>
-</ul>
+            <p id="section-toc.1-1.7.1"><a href="#section-7" class="xref">7</a>.  <a href="#name-iana-considerations" class="xref">IANA Considerations</a><a href="#section-toc.1-1.7.1" class="pilcrow">¶</a></p>
 </li>
 <li class="toc ulEmpty" id="section-toc.1-1.8">
-            <p id="section-toc.1-1.8.1"><a href="#section-8" class="xref">8</a>.  <a href="#name-references" class="xref">References</a><a href="#section-toc.1-1.8.1" class="pilcrow">¶</a></p>
+            <p id="section-toc.1-1.8.1"><a href="#section-8" class="xref">8</a>.  <a href="#name-security-considerations" class="xref">Security Considerations</a><a href="#section-toc.1-1.8.1" class="pilcrow">¶</a></p>
 <ul class="toc ulEmpty">
 <li class="toc ulEmpty" id="section-toc.1-1.8.2.1">
-                <p id="section-toc.1-1.8.2.1.1"><a href="#section-8.1" class="xref">8.1</a>.  <a href="#name-normative-references" class="xref">Normative References</a><a href="#section-toc.1-1.8.2.1.1" class="pilcrow">¶</a></p>
-</li>
-<li class="toc ulEmpty" id="section-toc.1-1.8.2.2">
-                <p id="section-toc.1-1.8.2.2.1"><a href="#section-8.2" class="xref">8.2</a>.  <a href="#name-informative-references" class="xref">Informative References</a><a href="#section-toc.1-1.8.2.2.1" class="pilcrow">¶</a></p>
+                <p id="section-toc.1-1.8.2.1.1"><a href="#section-8.1" class="xref">8.1</a>.  <a href="#name-privacy-concerns" class="xref">Privacy Concerns</a><a href="#section-toc.1-1.8.2.1.1" class="pilcrow">¶</a></p>
 </li>
 </ul>
 </li>
 <li class="toc ulEmpty" id="section-toc.1-1.9">
-            <p id="section-toc.1-1.9.1"><a href="#section-appendix.a" class="xref">Appendix A</a>.  <a href="#name-using-lidar-for-ua-location" class="xref">Using LIDAR for UA location</a><a href="#section-toc.1-1.9.1" class="pilcrow">¶</a></p>
+            <p id="section-toc.1-1.9.1"><a href="#section-9" class="xref">9</a>.  <a href="#name-references" class="xref">References</a><a href="#section-toc.1-1.9.1" class="pilcrow">¶</a></p>
+<ul class="toc ulEmpty">
+<li class="toc ulEmpty" id="section-toc.1-1.9.2.1">
+                <p id="section-toc.1-1.9.2.1.1"><a href="#section-9.1" class="xref">9.1</a>.  <a href="#name-normative-references" class="xref">Normative References</a><a href="#section-toc.1-1.9.2.1.1" class="pilcrow">¶</a></p>
+</li>
+<li class="toc ulEmpty" id="section-toc.1-1.9.2.2">
+                <p id="section-toc.1-1.9.2.2.1"><a href="#section-9.2" class="xref">9.2</a>.  <a href="#name-informative-references" class="xref">Informative References</a><a href="#section-toc.1-1.9.2.2.1" class="pilcrow">¶</a></p>
+</li>
+</ul>
 </li>
 <li class="toc ulEmpty" id="section-toc.1-1.10">
-            <p id="section-toc.1-1.10.1"><a href="#section-appendix.b" class="xref">Appendix B</a>.  <a href="#name-cddl-normative" class="xref">CDDL (Normative)</a><a href="#section-toc.1-1.10.1" class="pilcrow">¶</a></p>
+            <p id="section-toc.1-1.10.1"><a href="#section-appendix.a" class="xref">Appendix A</a>.  <a href="#name-using-lidar-for-ua-location" class="xref">Using LIDAR for UA location</a><a href="#section-toc.1-1.10.1" class="pilcrow">¶</a></p>
 </li>
 <li class="toc ulEmpty" id="section-toc.1-1.11">
-            <p id="section-toc.1-1.11.1"><a href="#section-appendix.c" class="xref"></a><a href="#name-acknowledgments" class="xref">Acknowledgments</a><a href="#section-toc.1-1.11.1" class="pilcrow">¶</a></p>
+            <p id="section-toc.1-1.11.1"><a href="#section-appendix.b" class="xref"></a><a href="#name-acknowledgments" class="xref">Acknowledgments</a><a href="#section-toc.1-1.11.1" class="pilcrow">¶</a></p>
 </li>
 <li class="toc ulEmpty" id="section-toc.1-1.12">
-            <p id="section-toc.1-1.12.1"><a href="#section-appendix.d" class="xref"></a><a href="#name-authors-addresses" class="xref">Authors' Addresses</a><a href="#section-toc.1-1.12.1" class="pilcrow">¶</a></p>
+            <p id="section-toc.1-1.12.1"><a href="#section-appendix.c" class="xref"></a><a href="#name-authors-addresses" class="xref">Authors' Addresses</a><a href="#section-toc.1-1.12.1" class="pilcrow">¶</a></p>
 </li>
 </ul>
 </nav>
@@ -1149,28 +1177,28 @@ appear in all capitals, as shown here.<a href="#section-2.1-1" class="pilcrow">�
         <h3 id="name-definitions">
 <a href="#section-2.2" class="section-number selfRef">2.2. </a><a href="#name-definitions" class="section-name selfRef">Definitions</a>
         </h3>
-<dl class="dlNewline" id="section-2.2-1">
-          <dt id="section-2.2-1.1">B-RID</dt>
+<dl class="dlParallel" id="section-2.2-1">
+          <dt id="section-2.2-1.1">B-RID:</dt>
 <dd id="section-2.2-1.2">
   Broadcast Remote ID. A method of sending RID messages as
 1-way transmissions from the UA to any Observers within
 radio range.<a href="#section-2.2-1.2" class="pilcrow">¶</a>
 </dd>
 <dd class="break"></dd>
-<dt id="section-2.2-1.3">CAA</dt>
+<dt id="section-2.2-1.3">CAA:</dt>
 <dd id="section-2.2-1.4">
   Civil Aeronautics Administration. An example is the Federal
 Aviation Administration (FAA) in the United States of
 America.<a href="#section-2.2-1.4" class="pilcrow">¶</a>
 </dd>
 <dd class="break"></dd>
-<dt id="section-2.2-1.5">DAA</dt>
+<dt id="section-2.2-1.5">DAA:</dt>
 <dd id="section-2.2-1.6">
   Detect and Avoid. The process of a UA detecting obstacles,
 like other UAs and taking the necessary evasive action.<a href="#section-2.2-1.6" class="pilcrow">¶</a>
 </dd>
 <dd class="break"></dd>
-<dt id="section-2.2-1.7">ECIES</dt>
+<dt id="section-2.2-1.7">ECIES:</dt>
 <dd id="section-2.2-1.8">
   Elliptic Curve Integrated Encryption Scheme.  A hybrid
 encryption scheme which provides semantic security against
@@ -1178,7 +1206,7 @@ an adversary who is allowed to use chosen-plaintext and
 chosen-ciphertext attacks.<a href="#section-2.2-1.8" class="pilcrow">¶</a>
 </dd>
 <dd class="break"></dd>
-<dt id="section-2.2-1.9">GCS</dt>
+<dt id="section-2.2-1.9">GCS:</dt>
 <dd id="section-2.2-1.10">
   Ground Control Station. The part of the UAS that the remote
 pilot uses to exercise C2 over the UA, whether by remotely
@@ -1186,13 +1214,13 @@ exercising UA flight controls to fly the UA, by setting GPS
 waypoints, or otherwise directing its flight.<a href="#section-2.2-1.10" class="pilcrow">¶</a>
 </dd>
 <dd class="break"></dd>
-<dt id="section-2.2-1.11">Finder</dt>
+<dt id="section-2.2-1.11">Finder:</dt>
 <dd id="section-2.2-1.12">
   In Internet connected device that can receive B-RID
 messages and forward them to a UTM.<a href="#section-2.2-1.12" class="pilcrow">¶</a>
 </dd>
 <dd class="break"></dd>
-<dt id="section-2.2-1.13">Observer</dt>
+<dt id="section-2.2-1.13">Observer:</dt>
 <dd id="section-2.2-1.14">
   Referred to in other UAS documents as a "user", but there
 are also other classes of RID users, so we prefer
@@ -1201,7 +1229,7 @@ and wishes to know something about it, starting with its
 RID.<a href="#section-2.2-1.14" class="pilcrow">¶</a>
 </dd>
 <dd class="break"></dd>
-<dt id="section-2.2-1.15">Multilateration</dt>
+<dt id="section-2.2-1.15">Multilateration:</dt>
 <dd id="section-2.2-1.16">
   Multilateration (more completely, pseudo range
 multilateration) is a navigation and surveillance technique
@@ -1210,14 +1238,14 @@ energy waves (radio, acoustic, seismic, etc.) having a
 known propagation speed.<a href="#section-2.2-1.16" class="pilcrow">¶</a>
 </dd>
 <dd class="break"></dd>
-<dt id="section-2.2-1.17">NETSP</dt>
+<dt id="section-2.2-1.17">NETSP:</dt>
 <dd id="section-2.2-1.18">
   Network RID Service Provider. USS receiving Network RID
 messages from UAS (UA or GCS), storing for a short
 specified time, making available to NETDP.<a href="#section-2.2-1.18" class="pilcrow">¶</a>
 </dd>
 <dd class="break"></dd>
-<dt id="section-2.2-1.19">NETDP</dt>
+<dt id="section-2.2-1.19">NETDP:</dt>
 <dd id="section-2.2-1.20">
   Network RID Display Provider. Entity (might be USS)
 aggregating data from multiple NETSPs to answer query from
@@ -1225,26 +1253,26 @@ observer (or other party) desiring Situational Awareness of
 UAS operating in a specific airspace volume.<a href="#section-2.2-1.20" class="pilcrow">¶</a>
 </dd>
 <dd class="break"></dd>
-<dt id="section-2.2-1.21">N-RID</dt>
+<dt id="section-2.2-1.21">N-RID:</dt>
 <dd id="section-2.2-1.22">
   Network Remote ID. A method of sending RID messages via the
 Internet connection of the UAS directly to the UTM.<a href="#section-2.2-1.22" class="pilcrow">¶</a>
 </dd>
 <dd class="break"></dd>
-<dt id="section-2.2-1.23">RID</dt>
+<dt id="section-2.2-1.23">RID:</dt>
 <dd id="section-2.2-1.24">
   Remote ID. A unique identifier found on all UA to be used
 in communication and in regulation of UA operation.<a href="#section-2.2-1.24" class="pilcrow">¶</a>
 </dd>
 <dd class="break"></dd>
-<dt id="section-2.2-1.25">SDSP</dt>
+<dt id="section-2.2-1.25">SDSP:</dt>
 <dd id="section-2.2-1.26">
   Supplemental Data Service Provider. Entity providing
 information that is allowed, but not required to be present
 in the UTM system.<a href="#section-2.2-1.26" class="pilcrow">¶</a>
 </dd>
 <dd class="break"></dd>
-<dt id="section-2.2-1.27">UA</dt>
+<dt id="section-2.2-1.27">UA:</dt>
 <dd id="section-2.2-1.28">
   Unmanned Aircraft. In this document UA's are typically
 though of as drones of commercial or military variety. This
@@ -1252,7 +1280,7 @@ is a very strict definition which can be relaxed to include
 any and all aircraft that are unmanned.<a href="#section-2.2-1.28" class="pilcrow">¶</a>
 </dd>
 <dd class="break"></dd>
-<dt id="section-2.2-1.29">UAS</dt>
+<dt id="section-2.2-1.29">UAS:</dt>
 <dd id="section-2.2-1.30">
   Unmanned Aircraft System. Composed of Unmanned Aircraft and
 all required on-board subsystems, payload, control station,
@@ -1261,7 +1289,7 @@ and recovery equipment, all required crew members, and C2
 links between UA and the control station.<a href="#section-2.2-1.30" class="pilcrow">¶</a>
 </dd>
 <dd class="break"></dd>
-<dt id="section-2.2-1.31">UTM</dt>
+<dt id="section-2.2-1.31">UTM:</dt>
 <dd id="section-2.2-1.32">
   UAS Traffic Management. A "traffic management" ecosystem
 for uncontrolled operations that is separate from, but
@@ -1269,7 +1297,7 @@ complementary to, the FAA's Air Traffic Management (ATM)
 system.<a href="#section-2.2-1.32" class="pilcrow">¶</a>
 </dd>
 <dd class="break"></dd>
-<dt id="section-2.2-1.33">USS</dt>
+<dt id="section-2.2-1.33">USS:</dt>
 <dd id="section-2.2-1.34">
   UAS Service Supplier. Provide UTM services to support the
 UAS community, to connect Operators and other entities to
@@ -1374,7 +1402,7 @@ messages of questionable content.<a href="#section-3.4-1" class="pilcrow">¶</a>
       <h2 id="name-the-finder-sdsp-security-re">
 <a href="#section-4" class="section-number selfRef">4. </a><a href="#name-the-finder-sdsp-security-re" class="section-name selfRef">The Finder - SDSP Security Relationship</a>
       </h2>
-<p id="section-4-1">The SDSP(s) and Finders SHOULD use <span><a href="#RFC8032" class="xref">EDDSA</a> [<a href="#RFC8032" class="xref">RFC8032</a>]</span> keys as their
+<p id="section-4-1">The SDSP(s) and Finders SHOULD use EDDSA <span>[<a href="#RFC8032" class="xref">RFC8032</a>]</span> keys as their
 trusted Identities.
 The public keys SHOULD be registered Hierarchical HITS,
 <span>[<a href="#hierarchical-hit" class="xref">hierarchical-hit</a>]</span> and <span>[<a href="#hhit-registries" class="xref">hhit-registries</a>]</span>.<a href="#section-4-1" class="pilcrow">¶</a></p>
@@ -1392,13 +1420,11 @@ Finder to the SDSP.<a href="#section-4-2" class="pilcrow">¶</a></p>
   each message sent from a Finder to the SDSP sent during
   that period.<a href="#section-4-3.2" class="pilcrow">¶</a>
 </li>
-<li id="section-4-3.3">
-          <span><a href="#RFC7401" class="xref">HIPv2</a> [<a href="#RFC7401" class="xref">RFC7401</a>]</span> can be used to
-  establish a session secret that is then used with <span><a href="#RFC4303" class="xref">ESP</a> [<a href="#RFC4303" class="xref">RFC4303</a>]</span> to authenticate each message
-  sent from a Finder to the SDSP.<a href="#section-4-3.3" class="pilcrow">¶</a>
+<li id="section-4-3.3">HIPv2 <span>[<a href="#RFC7401" class="xref">RFC7401</a>]</span> can be used to
+  establish a session secret that is then used with ESP <span>[<a href="#RFC4303" class="xref">RFC4303</a>]</span> 
+  to authenticate each message sent from a Finder to the SDSP.<a href="#section-4-3.3" class="pilcrow">¶</a>
 </li>
-<li id="section-4-3.4">
-          <span><a href="#RFC5238" class="xref">DTLS</a> [<a href="#RFC5238" class="xref">RFC5238</a>]</span> can be used to establish
+<li id="section-4-3.4">DTLS <span>[<a href="#RFC5238" class="xref">RFC5238</a>]</span>  can be used to establish
   a secure connection that is then used to authenticate each
   message sent from a Finder to the SDSP.<a href="#section-4-3.4" class="pilcrow">¶</a>
 </li>
@@ -1445,36 +1471,125 @@ of the congested area.<a href="#section-4.2-2" class="pilcrow">¶</a></p>
 <p id="section-5-1">The CS-RID messages between the Finders and the SDSPs primarily
 support the proxy role of the Finders in forwarding the B-RID
 messages.  There are also Finder registration and status messages.<a href="#section-5-1" class="pilcrow">¶</a></p>
-<p id="section-5-2">CS-RID information is represented in CBOR <span>[<a href="#RFC7049" class="xref">RFC7049</a>]</span>.  COSE <span>[<a href="#RFC8152" class="xref">RFC8152</a>]</span> may be used for CS-RID MAC and
-COAP <span>[<a href="#RFC7252" class="xref">RFC7252</a>]</span> for the CS-RID protocol.<a href="#section-5-2" class="pilcrow">¶</a></p>
-<p id="section-5-3">The following is a general representation of the content in the
-CS-RID messages.<a href="#section-5-3" class="pilcrow">¶</a></p>
-<div class="artwork art-text alignLeft" id="section-5-4">
+<p id="section-5-2">CS-RID information is represented in CBOR <span>[<a href="#RFC7049" class="xref">RFC7049</a>]</span>.
+The CDDL <span>[<a href="#RFC8610" class="xref">RFC8610</a>]</span> specification is used for CS-RID message description<a href="#section-5-2" class="pilcrow">¶</a></p>
+<p id="section-5-3">CS-RID MAC and COAP <span>[<a href="#RFC7252" class="xref">RFC7252</a>]</span> for the CS-RID protocol.<a href="#section-5-3" class="pilcrow">¶</a></p>
+<p id="section-5-4">The following is a general representation of the content in the
+CS-RID messages.<a href="#section-5-4" class="pilcrow">¶</a></p>
+<div class="artwork art-text alignLeft" id="section-5-5">
 <pre>
-         (   CS-RID MESSAGE TYPE,
-             CS-RID MESSAGE CONTENT,
-             CS-RID MAC)
-
-</pre><a href="#section-5-4" class="pilcrow">¶</a>
+  (
+    CS-RID MESSAGE TYPE,
+    CS-RID MESSAGE CONTENT,
+    CS-RID MAC
+  )
+</pre><a href="#section-5-5" class="pilcrow">¶</a>
 </div>
-<p id="section-5-5">The CS-RID MESSAGE CONTENT varies by MESSAGE TYPE.<a href="#section-5-5" class="pilcrow">¶</a></p>
+<p id="section-5-6">The CS-RID MESSAGE CONTENT varies by MESSAGE TYPE.<a href="#section-5-6" class="pilcrow">¶</a></p>
 <div id="CS-RID_MESSAGE_TYPE">
 <section id="section-5.1">
         <h3 id="name-cs-rid-message-type">
 <a href="#section-5.1" class="section-number selfRef">5.1. </a><a href="#name-cs-rid-message-type" class="section-name selfRef">CS-RID MESSAGE TYPE</a>
         </h3>
-<p id="section-5.1-1">The CS-RID MESSAGE TYPE is:<a href="#section-5.1-1" class="pilcrow">¶</a></p>
-<div class="artwork art-text alignLeft" id="section-5.1-2">
+<p id="section-5.1-1">The CS-RID MESSAGE TYPE is defined in <a href="#csrid-message" class="xref">Figure 1</a>:<a href="#section-5.1-1" class="pilcrow">¶</a></p>
+<div id="csrid-message">
+<figure id="figure-1">
+          <div class="artwork art-text alignLeft" id="section-5.1-2.1">
 <pre>
-Number   CS-RID Message Type
-------   -----------------
-0        Reserved
-1        B-RID Forwarding
-2        Finder Registration
-3        SDSP Response
-4        Finder Location
+  Number   CS-RID Message Type
+  ------   -----------------
+  0        Reserved
+  1        B-RID Forwarding
+  2        Finder Registration
+  3        SDSP Response
+  4        Finder Location
+</pre>
+</div>
+<figcaption><a href="#figure-1" class="selfRef">Figure 1</a></figcaption></figure>
+</div>
+<div id="cddl-description-for-cs-rid-message-type">
+<section id="section-5.1.1">
+          <h4 id="name-cddl-description-for-cs-rid">
+<a href="#section-5.1.1" class="section-number selfRef">5.1.1. </a><a href="#name-cddl-description-for-cs-rid" class="section-name selfRef">CDDL description for CS-RID message type</a>
+          </h4>
+<p id="section-5.1.1-1">The overall CS-RID CDDL description is structured in <a href="#csrid-object" class="xref">Figure 2</a>.<a href="#section-5.1.1-1" class="pilcrow">¶</a></p>
+<div id="csrid-object">
+<figure id="figure-2">
+            <div class="artwork art-text alignLeft" id="section-5.1.1-2.1">
+<pre>
+CSRID_Object = {
+  application-context,
+  info                =&gt; info_message,
+  proxy_message       =&gt; broadcast_rid_proxy_message,
+  finder_registration =&gt; finder_registration_message,
+  sdsp_response       =&gt; sdsp_response_message,
+  location_update     =&gt; location_update_message,
+}
 
-</pre><a href="#section-5.1-2" class="pilcrow">¶</a>
+info_message = {
+  common_message_members,
+  message_content =&gt; tstr,
+}
+
+common_message_members = (
+  message_type  =&gt; message_types,
+  mac_address   =&gt; #6.37(bstr),
+)
+
+message_types = &amp;(
+  Reserved            : 0,
+  BRD                 : 1,
+  Finder-Registration : 2,
+  SDSP-Response       : 3,
+  Finder-Location     : 4,
+)
+</pre>
+</div>
+<figcaption><a href="#figure-2" class="selfRef">Figure 2</a></figcaption></figure>
+</div>
+<p id="section-5.1.1-3">The application context rule is defined in <a href="#csrid-app-context" class="xref">Figure 3</a> for 
+CS-RID application identification and version negotiation.<a href="#section-5.1.1-3" class="pilcrow">¶</a></p>
+<div id="csrid-app-context">
+<figure id="figure-3">
+            <div class="artwork art-text alignLeft" id="section-5.1.1-4.1">
+<pre>
+application-context = (
+  application =&gt; "DRIP-CSRID",
+  ? version =&gt; uint .size(1..2),
+)
+</pre>
+</div>
+<figcaption><a href="#figure-3" class="selfRef">Figure 3</a></figcaption></figure>
+</div>
+<p id="section-5.1.1-5">The predefined CDDL text string labels (author note: for JSON currently, will move to CBOR uint keys in upcoming versions) used in the specification is listed in <a href="#csrid-variables" class="xref">Figure 4</a>.<a href="#section-5.1.1-5" class="pilcrow">¶</a></p>
+<div id="csrid-variables">
+<figure id="figure-4">
+            <div class="artwork art-text alignLeft" id="section-5.1.1-6.1">
+<pre>
+application           = "application"
+version               = "version"
+info                  = "message_info"
+proxy_message         = "proxy_message-type"
+finder_registration   = "finder_registration"
+sdsp_response         = "sdsp_response"
+location_update       = "location_update"
+rid                   = "id"
+message_type          = "message_type"
+mac_address           = "mac_address"
+message_content       = "message_content"
+timestamp             = "timestamp"
+gps                   = "gps"
+radio_type            = "radio_type"
+broadcast_mac_address = "broadcast_mac_address"
+broadcast_message     = "broadcast_message"
+sdsp_id               = "sdsp_id"
+proxy_status_type     = "proxy_status_type"
+update_interval       = "update_interval"
+</pre>
+</div>
+<figcaption><a href="#figure-4" class="selfRef">Figure 4</a></figcaption></figure>
+</div>
+</section>
 </div>
 </section>
 </div>
@@ -1499,15 +1614,16 @@ content is MACed using a key shared between the Finder and SDSP.<a href="#sectio
 messages.<a href="#section-5.2-3" class="pilcrow">¶</a></p>
 <div class="artwork art-text alignLeft" id="section-5.2-4">
 <pre>
-         (   CS-RID MESSAGE TYPE,
-             CS-RID ID,
-             RECEIVE TIMESTAMP,
-             RECEIVE GPS,
-             RECEIVE RADIO TYPE,
-             B-RID MAC ADDRESS,
-             B-RID MESSAGE,
-             CS-RID MAC)
-
+  (
+    CS-RID MESSAGE TYPE,
+    CS-RID ID,
+    RECEIVE TIMESTAMP,
+    RECEIVE GPS,
+    RECEIVE RADIO TYPE,
+    B-RID MAC ADDRESS,
+    B-RID MESSAGE,
+    CS-RID MAC
+  )
 </pre><a href="#section-5.2-4" class="pilcrow">¶</a>
 </div>
 <div id="CS-RID_ID">
@@ -1517,6 +1633,49 @@ messages.<a href="#section-5.2-3" class="pilcrow">¶</a></p>
           </h4>
 <p id="section-5.2.1-1">The CS-RID ID is the ID recognized by the SDSP.  This may be an
 HHIT <span><a href="#hierarchical-hit" class="xref">Hierarchical HITs</a> [<a href="#hierarchical-hit" class="xref">hierarchical-hit</a>]</span>, or any ID used by the SDSP.<a href="#section-5.2.1-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="cddl-description-for-cs-rid-b-rid-proxy-message">
+<section id="section-5.2.2">
+          <h4 id="name-cddl-description-for-cs-rid-">
+<a href="#section-5.2.2" class="section-number selfRef">5.2.2. </a><a href="#name-cddl-description-for-cs-rid-" class="section-name selfRef">CDDL description for CS-RID B-RID Proxy Message</a>
+          </h4>
+<p id="section-5.2.2-1">The broadcast CS-RID proxy CDDL is defined in <a href="#csrid-brid-proxy" class="xref">Figure 5</a><a href="#section-5.2.2-1" class="pilcrow">¶</a></p>
+<div id="csrid-brid-proxy">
+<figure id="figure-5">
+            <div class="artwork art-text alignLeft" id="section-5.2.2-2.1">
+<pre>
+broadcast_rid_proxy_message = {
+  common_message_members,
+  rid                   =&gt; tstr,
+  timestamp             =&gt; tdate,
+  gps                   =&gt; gps-coordinates,
+  radio_type            =&gt; radio_types,
+  broadcast_mac_address =&gt; #6.37(bstr),
+  broadcast_message     =&gt; #6.37(bstr),
+}
+
+radio_types = &amp;(
+  EFL : 0,
+  VLF : 1,
+  LF  : 2,
+  MF  : 3,
+  HF  : 4,
+  HF  : 5,
+  VHF : 6,
+  UHF : 7,
+  SHF : 8,
+  EHF : 9,
+)
+
+gps-coordinates = [
+  latitude : float,
+  longitude: float,
+]
+</pre>
+</div>
+<figcaption><a href="#figure-5" class="selfRef">Figure 5</a></figcaption></figure>
+</div>
 </section>
 </div>
 </section>
@@ -1541,13 +1700,41 @@ CS-RID B-RID Proxy Messages.  In this case the Finder Registration
 Message is:<a href="#section-5.3-3" class="pilcrow">¶</a></p>
 <div class="artwork art-text alignLeft" id="section-5.3-4">
 <pre>
-         (   CS-RID MESSAGE TYPE,
-             CS-RID ID,
-             CS-RID TIMESTAMP,
-             CS-RID GPS,
-             CS-RID MAC)
-
+  (
+    CS-RID MESSAGE TYPE,
+    CS-RID ID,
+    CS-RID TIMESTAMP,
+    CS-RID GPS,
+    CS-RID MAC
+  )
 </pre><a href="#section-5.3-4" class="pilcrow">¶</a>
+</div>
+<div id="cddl-description-for-finder-registration">
+<section id="section-5.3.1">
+          <h4 id="name-cddl-description-for-finder">
+<a href="#section-5.3.1" class="section-number selfRef">5.3.1. </a><a href="#name-cddl-description-for-finder" class="section-name selfRef">CDDL description for Finder Registration</a>
+          </h4>
+<p id="section-5.3.1-1">The CDDL for CS-RID Finder Registration is defined in <a href="#csrid-finder-registration" class="xref">Figure 6</a><a href="#section-5.3.1-1" class="pilcrow">¶</a></p>
+<div id="csrid-finder-registration">
+<figure id="figure-6">
+            <div class="artwork art-text alignLeft" id="section-5.3.1-2.1">
+<pre>
+finder_registration_message = {
+  common_message_members,
+  rid       =&gt; tstr,
+  timestamp =&gt; tdate,
+  gps       =&gt; gps-coordinates,
+}
+
+gps-coordinates = [
+  latitude : float,
+  longitude: float,
+]
+</pre>
+</div>
+<figcaption><a href="#figure-6" class="selfRef">Figure 6</a></figcaption></figure>
+</div>
+</section>
 </div>
 </section>
 </div>
@@ -1560,19 +1747,54 @@ Message is:<a href="#section-5.3-3" class="pilcrow">¶</a></p>
 behavior.<a href="#section-5.4-1" class="pilcrow">¶</a></p>
 <div class="artwork art-text alignLeft" id="section-5.4-2">
 <pre>
-         (   CS-RID MESSAGE TYPE,
-             SDSP ID,
-             CS-RID ID,
-             CS-RID PROXY STATUS,
-             CS-RID UPDATE INTERVAL,
-             CS-RID MAC)
-
+  (
+    CS-RID MESSAGE TYPE,
+    SDSP ID,
+    CS-RID ID,
+    CS-RID PROXY STATUS,
+    CS-RID UPDATE INTERVAL,
+    CS-RID MAC
+  )
 </pre><a href="#section-5.4-2" class="pilcrow">¶</a>
 </div>
 <p id="section-5.4-3">The Proxy Status instructs the Finder if it should actively proxy
 B-RID messages, or suspend proxying and only report its location.<a href="#section-5.4-3" class="pilcrow">¶</a></p>
 <p id="section-5.4-4">The Update Interval is the frequency that the Finder SHOULD notify
 the SDSP of its current location using the Location Update message.<a href="#section-5.4-4" class="pilcrow">¶</a></p>
+<div id="cddl-description-for-sdsp-response">
+<section id="section-5.4.1">
+          <h4 id="name-cddl-description-for-sdsp-r">
+<a href="#section-5.4.1" class="section-number selfRef">5.4.1. </a><a href="#name-cddl-description-for-sdsp-r" class="section-name selfRef">CDDL description for SDSP Response</a>
+          </h4>
+<p id="section-5.4.1-1">The CDDL for CS-RID SDSP response is defined in <a href="#csrid-sdsp-response" class="xref">Figure 7</a><a href="#section-5.4.1-1" class="pilcrow">¶</a></p>
+<div id="csrid-sdsp-response">
+<figure id="figure-7">
+            <div class="artwork art-text alignLeft" id="section-5.4.1-2.1">
+<pre>
+sdsp_response_message = {
+  common_message_members,
+  sdsp_id           =&gt; tstr,
+  rid               =&gt; tstr,
+  proxy_status_type =&gt; proxy_status_types,
+  update_interval   =&gt; uint,
+}
+
+gps-coordinates = [
+  latitude : float,
+  longitude: float,
+]
+
+proxy_status_types = &amp;(
+  0: "forward",
+  1: "reverse",
+  2: "bi-directional",
+)
+</pre>
+</div>
+<figcaption><a href="#figure-7" class="selfRef">Figure 7</a></figcaption></figure>
+</div>
+</section>
+</div>
 </section>
 </div>
 <div id="CS-RID_Upd">
@@ -1589,49 +1811,218 @@ sent since the Update Interval.<a href="#section-5.5-1" class="pilcrow">¶</a></
 default of 5 minutes is used for the Update Interval.<a href="#section-5.5-2" class="pilcrow">¶</a></p>
 <div class="artwork art-text alignLeft" id="section-5.5-3">
 <pre>
-         (   CS-RID MESSAGE TYPE,
-             CS-RID ID,
-             CS-RID TIMESTAMP,
-             CS-RID GPS,
-             CS-RID MAC)
-
+  (
+    CS-RID MESSAGE TYPE,
+    CS-RID ID,
+    CS-RID TIMESTAMP,
+    CS-RID GPS,
+    CS-RID MAC
+  )
 </pre><a href="#section-5.5-3" class="pilcrow">¶</a>
 </div>
+<div id="cddl-description-for-location-update">
+<section id="section-5.5.1">
+          <h4 id="name-cddl-description-for-locati">
+<a href="#section-5.5.1" class="section-number selfRef">5.5.1. </a><a href="#name-cddl-description-for-locati" class="section-name selfRef">CDDL description for Location Update</a>
+          </h4>
+<p id="section-5.5.1-1">The CDDL for CS-RID Location update is defined in <a href="#csrid-location-update" class="xref">Figure 8</a><a href="#section-5.5.1-1" class="pilcrow">¶</a></p>
+<div id="csrid-location-update">
+<figure id="figure-8">
+            <div class="artwork art-text alignLeft" id="section-5.5.1-2.1">
+<pre>
+location_update_message = {
+  common_message_members,
+  rid       =&gt; tstr,
+  timestamp =&gt; tdate,
+  gps       =&gt; gps-coordinates,
+}
+
+gps-coordinates = [
+  latitude : float,
+  longitude: float,
+]
+</pre>
+</div>
+<figcaption><a href="#figure-8" class="selfRef">Figure 8</a></figcaption></figure>
+</div>
 </section>
+</div>
+</section>
+</div>
+</section>
+</div>
+<div id="the-full-cs-rid-cddl-specification">
+<section id="section-6">
+      <h2 id="name-the-full-cs-rid-cddl-specif">
+<a href="#section-6" class="section-number selfRef">6. </a><a href="#name-the-full-cs-rid-cddl-specif" class="section-name selfRef">The Full CS-RID CDDL specification</a>
+      </h2>
+<div id="section-6-1">
+<pre class="sourcecode lang-CDDL">&lt;CODE BEGINS&gt;
+; CDDL specification for Crowd source RID
+; It specifies a collection of CS message types
+;
+
+;
+; The CSRID overall data structure
+
+CSRID_Object = {
+    application-context,
+    info =&gt;  info_message,
+    proxy_message =&gt; broadcast_rid_proxy_message,
+    finder_registration =&gt; finder_registration_message,
+    sdsp_response =&gt; sdsp_response_message,
+    location_update =&gt; location_update_message,
+}
+
+;
+; Application context: general information about CSRID message (optional
+
+application-context = (
+    application =&gt; "DRIP-CSRID", ; why do you need this? you could tag the root structure and skip text values here?
+    ? version =&gt; uint .size(1..2),
+)
+
+; These members are include in every message
+common_message_members = (
+    message_type =&gt; message_types,
+    mac_address =&gt; #6.37(bstr),
+)
+
+;
+; CSRID message general information
+
+info_message = {
+    common_message_members,
+    message_content =&gt; tstr,
+}
+
+broadcast_rid_proxy_message = {
+    common_message_members,
+    rid =&gt; tstr,
+    timestamp =&gt; tdate,
+    gps =&gt; gps-coordinates,
+    radio_type =&gt; radio_types,
+    broadcast_mac_address =&gt; #6.37(bstr)
+    broadcast_message =&gt; #6.37(bstr)
+}
+
+finder_registration_message = {
+    common_message_members,
+    rid =&gt; tstr,
+    timestamp =&gt; tdate,
+    gps =&gt; gps-coordinates,
+}
+
+sdsp_response_message = {
+    common_message_members,
+    sdsp_id =&gt; tstr,
+    rid =&gt; tstr,
+    proxy_status_type =&gt; proxy_status_types,
+    update_interval =&gt; uint,
+}
+
+location_update_message = {
+    common_message_members,
+    rid =&gt; tstr,
+    timestamp =&gt; tdate,
+    gps =&gt; gps-coordinates,
+}
+
+;
+; Common rule definition
+
+message_types = &amp;(
+    Reserved            : 0,
+    BRD                 : 1,
+    Finder-Registration : 2,
+    SDSP-Response       : 3,
+    Finder-Location     : 4,
+)
+
+gps-coordinates = [
+    lat: float,
+    long: float,
+]
+
+; Radio types, choose from one of radio_types (required)
+radio_types = &amp;(
+    EFL : 0,
+    VLF : 1,
+    LF  : 2,
+    MF  : 3,
+    HF  : 4,
+    HF  : 5,
+    VHF : 6,
+    UHF : 7,
+    SHF : 8,
+    EHF : 9,
+)
+
+proxy_status_types = &amp;(
+    0: "forward",
+    1: "reverse",
+    2: "bi",
+)
+
+;
+; JSON label names
+
+application = "application"
+version = "version"
+info = "message_info"
+proxy_message = "proxy_message-type"
+finder_registration = "finder_registration"
+sdsp_response = "sdsp_response"
+location_update = "location_update"
+rid = "id"
+message_type = "message_type"
+mac_address = "mac_address"
+message_content = "message_content"
+timestamp = "timestamp"
+gps = "gps"
+radio_type = "radio_type"
+broadcast_mac_address = "broadcast_mac_address"
+broadcast_message = "broadcast_message"
+sdsp_id = "sdsp_id"
+proxy_status_type = "proxy_status_type"
+update_interval = "update_interval"
+
+
+&lt;CODE ENDS&gt;</pre><a href="#section-6-1" class="pilcrow">¶</a>
 </div>
 </section>
 </div>
 <div id="IANA">
-<section id="section-6">
+<section id="section-7">
       <h2 id="name-iana-considerations">
-<a href="#section-6" class="section-number selfRef">6. </a><a href="#name-iana-considerations" class="section-name selfRef">IANA Considerations</a>
+<a href="#section-7" class="section-number selfRef">7. </a><a href="#name-iana-considerations" class="section-name selfRef">IANA Considerations</a>
       </h2>
-<p id="section-6-1">TBD<a href="#section-6-1" class="pilcrow">¶</a></p>
+<p id="section-7-1">TBD<a href="#section-7-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="security-considerations">
-<section id="section-7">
-      <h2 id="name-security-considerations">
-<a href="#section-7" class="section-number selfRef">7. </a><a href="#name-security-considerations" class="section-name selfRef">Security Considerations</a>
-      </h2>
-<p id="section-7-1">TBD<a href="#section-7-1" class="pilcrow">¶</a></p>
-<div id="privacy-concerns">
-<section id="section-7.1">
-        <h3 id="name-privacy-concerns">
-<a href="#section-7.1" class="section-number selfRef">7.1. </a><a href="#name-privacy-concerns" class="section-name selfRef">Privacy Concerns</a>
-        </h3>
-<p id="section-7.1-1">TBD<a href="#section-7.1-1" class="pilcrow">¶</a></p>
-</section>
-</div>
-</section>
-</div>
 <section id="section-8">
-      <h2 id="name-references">
-<a href="#section-8" class="section-number selfRef">8. </a><a href="#name-references" class="section-name selfRef">References</a>
+      <h2 id="name-security-considerations">
+<a href="#section-8" class="section-number selfRef">8. </a><a href="#name-security-considerations" class="section-name selfRef">Security Considerations</a>
       </h2>
+<p id="section-8-1">TBD<a href="#section-8-1" class="pilcrow">¶</a></p>
+<div id="privacy-concerns">
 <section id="section-8.1">
+        <h3 id="name-privacy-concerns">
+<a href="#section-8.1" class="section-number selfRef">8.1. </a><a href="#name-privacy-concerns" class="section-name selfRef">Privacy Concerns</a>
+        </h3>
+<p id="section-8.1-1">TBD<a href="#section-8.1-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+</section>
+</div>
+<section id="section-9">
+      <h2 id="name-references">
+<a href="#section-9" class="section-number selfRef">9. </a><a href="#name-references" class="section-name selfRef">References</a>
+      </h2>
+<section id="section-9.1">
         <h3 id="name-normative-references">
-<a href="#section-8.1" class="section-number selfRef">8.1. </a><a href="#name-normative-references" class="section-name selfRef">Normative References</a>
+<a href="#section-9.1" class="section-number selfRef">9.1. </a><a href="#name-normative-references" class="section-name selfRef">Normative References</a>
         </h3>
 <dl class="references">
 <dt id="RFC2119">[RFC2119]</dt>
@@ -1648,9 +2039,9 @@ default of 5 minutes is used for the Update Interval.<a href="#section-5.5-2" cl
 <dd class="break"></dd>
 </dl>
 </section>
-<section id="section-8.2">
+<section id="section-9.2">
         <h3 id="name-informative-references">
-<a href="#section-8.2" class="section-number selfRef">8.2. </a><a href="#name-informative-references" class="section-name selfRef">Informative References</a>
+<a href="#section-9.2" class="section-number selfRef">9.2. </a><a href="#name-informative-references" class="section-name selfRef">Informative References</a>
         </h3>
 <dl class="references">
 <dt id="F3411-19">[F3411-19]</dt>
@@ -1734,185 +2125,18 @@ be available?  What information can be sent in a CS-RID message for
 such "unmarked" UAs?<a href="#section-appendix.a-6" class="pilcrow">¶</a></p>
 </section>
 </div>
-<div id="cddl">
-<section id="section-appendix.b">
-      <h2 id="name-cddl-normative">
-<a href="#section-appendix.b" class="section-number selfRef">Appendix B. </a><a href="#name-cddl-normative" class="section-name selfRef">CDDL (Normative)</a>
-      </h2>
-<p id="section-appendix.b-1">The CDDL <span>[<a href="#RFC8610" class="xref">RFC8610</a>]</span> specification for CS-RID message is listed in this appendix.<a href="#section-appendix.b-1" class="pilcrow">¶</a></p>
-<p id="section-appendix.b-2">The CS-RID MESSAGE TYPE is:<a href="#section-appendix.b-2" class="pilcrow">¶</a></p>
-<div class="artwork art-text alignLeft" id="section-appendix.b-3">
-<pre>
-; CDDL specification for Crowd source RID
-; It specifies a collection of CS message types
-;
-
-;
-; The CSRID overall data structure
-;
-CSRID_Object = {
-    application-context,
-    ? message_info          : message
-    ? proxy_message-type    : proxy_message,
-    ? finder_registration   : finder_registration,
-    ? sdsp_response         : sdsp_response,
-    ? location_update       : location_update,
-}
-
-;
-; Application context: general information about CSRID message (optional)
-;
-application-context = (
-    "application"   =&gt; "DRIP-CSRID",
-    ? "version"     =&gt; uint .size(1..2),
-)
-
-;
-; CSRID message general information
-;
-message = {
-    message_types,      ; message type (required)
-    message_content,    ; message content (required)
-    mac_address,        ; MAC address (required)
-}
-
-;
-; Broadcast RID proxy message
-;
-proxy_message = {
-    message_types,          ; message type (required)
-    id,                     ; rid   (required)
-    timestamp,              ; received timestamp (required)
-    gps,                    ; received GPS coordination (required)
-    radio_type,             ; received radio types (required)
-    broadcast_mac_address,  ; broadcast MAC address (required)
-    broadcast_message,      ; broadcast message (required)
-    mac_address,            ; MAC address (required)
-}
-
-; Finder Registration
-;
-
-finder_registration = {
-    message_types,  ; message type (required)
-    id,             ; rid (required)
-    timestamp,      ; timestamp (required)
-    gps,            ; GPS coordination (required)
-    mac_address,    ; MAC address (required)
-}
-
-; SDSP Response
-;
-sdsp_response = {
-    message_types,    ; message type (required)
-    sdsp_id,         ; SDSP ID (required)
-    id,              ; rid (required)
-    proxy_status,    ; proxy status (required)
-    update_interval, ; update internval (required)
-    mac_address,     ; MAC address
-}
-
-; Location update
-;
-location_update = {
-    message_types,   ; message types (required)
-    id,              ; rid (required)
-    timestamp,       ; timestamp (required)
-    gps,             ; GPS coordination (required)
-    mac_address,     ; MAC address (required)
-}
-
-;
-; Common rule definition
-;
-
-; ID definition, text string (required)
-id = ( id : tstr) ;
-
-; predefined message types
-message_types = (
-    "message_type" =&gt; message_type,
-)
-message_type = &amp;message_type_all
-message_type_all = (
-    Reserved            : 0,
-    BRD                 : 1,
-    Finder-Registration : 2,
-    SDSP-Response       : 3,
-    Finder-Location     : 4,
-)
-
-; timestamp
-timestamp = (timestamp : tdate)
-
-; GPS coordination (required)
-gps = (GPS : [ coordination])
-coordination = (
-    lat: float,
-    long: float
-)
-
-; Radio types, choose from one of radio_types (required)
-radio_type = ( radio_type : radio_type_choice )
-radio_type_choice = &amp;(
-    EFL : 0,
-    VLF : 1,
-    LF  : 2,
-    MF  : 3,
-    HF  : 4,
-    HF  : 5,
-    VHF : 6,
-    UHF : 7,
-    SHF : 8,
-    EHF : 9,
-)
-
-; Broadcast MAC address (required)
-broadcast_mac_address = (
-    broadcast_MAC_address :  #6.37(bstr)
-)
-
-; Broadcst message content (required)
-broadcast_message = ( broadcast_message : tstr )
-
-; MAC address
-mac_address = ( MAC_address: #6.37(bstr) )
-
-; Message content
-message_content = ( message_content: tstr)
-
-; SDDP ID
-sdsp_id = (sdsp_id : tstr)
-
-; Proxy status
-proxy_status = (status : proxy_status_choice)
-proxy_status_choice = &amp;(
-    0: "forward",
-    1: "reverse",
-    2: "bi",
-)
-
-; Update Interval
-update_interval = (update_interval : uint)
-
-
-
-</pre><a href="#section-appendix.b-3" class="pilcrow">¶</a>
-</div>
-</section>
-</div>
 <div id="acknowledgments">
-<section id="section-appendix.c">
+<section id="section-appendix.b">
       <h2 id="name-acknowledgments">
 <a href="#name-acknowledgments" class="section-name selfRef">Acknowledgments</a>
       </h2>
-<p id="section-appendix.c-1">The Crowd Sourcing idea in this document came from the Apple "Find
+<p id="section-appendix.b-1">The Crowd Sourcing idea in this document came from the Apple "Find
 My Device" presentation at the International Association for
-Cryptographic Research's Real World Crypto 2020 conference.<a href="#section-appendix.c-1" class="pilcrow">¶</a></p>
+Cryptographic Research's Real World Crypto 2020 conference.<a href="#section-appendix.b-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="authors-addresses">
-<section id="section-appendix.d">
+<section id="section-appendix.c">
       <h2 id="name-authors-addresses">
 <a href="#name-authors-addresses" class="section-name selfRef">Authors' Addresses</a>
       </h2>
@@ -1965,6 +2189,19 @@ Cryptographic Research's Real World Crypto 2020 conference.<a href="#section-app
 <div class="email">
 <span>Email:</span>
 <a href="mailto:shuai.zhao@ieee.org" class="email">shuai.zhao@ieee.org</a>
+</div>
+</address>
+<address class="vcard">
+        <div dir="auto" class="left"><span class="fn nameRole">Henk Birkholz</span></div>
+<div dir="auto" class="left"><span class="org">Fraunhofer SIT</span></div>
+<div dir="auto" class="left"><span class="street-address">Rheinstrasse 75</span></div>
+<div dir="auto" class="left">
+<span class="postal-code">64295</span> <span class="locality">Darmstadt</span>
+</div>
+<div dir="auto" class="left"><span class="country-name">Germany</span></div>
+<div class="email">
+<span>Email:</span>
+<a href="mailto:henk.birkholz@sit.fraunhofer.de" class="email">henk.birkholz@sit.fraunhofer.de</a>
 </div>
 </address>
 </section>

@@ -362,8 +362,8 @@ Finder to the SDSP.
   that period.
 
 1.  [HIPv2](#RFC7401) can be used to
-  establish a session secret that is then used with [ESP](#RFC4303) to authenticate each message
-  sent from a Finder to the SDSP.
+  establish a session secret that is then used with [ESP](#RFC4303) 
+  to authenticate each message sent from a Finder to the SDSP.
 
 1.  [DTLS](#RFC5238) can be used to establish
   a secure connection that is then used to authenticate each
@@ -396,23 +396,26 @@ bus) would not be asked to suspend proxying as it will soon be out
 of the congested area.
 
 
-
 # The CS-RID Messages {#CSRID_messages}
 
 The CS-RID messages between the Finders and the SDSPs primarily
 support the proxy role of the Finders in forwarding the B-RID
 messages.  There are also Finder registration and status messages.
 
-CS-RID information is represented in CBOR {{RFC7049}}.  COSE {{RFC8152}} may be used for CS-RID MAC and
-COAP {{RFC7252}} for the CS-RID protocol.
+CS-RID information is represented in CBOR {{RFC7049}}.
+The CDDL [RFC8610] specification is used for CS-RID message description 
+for hunman-readable representation. COSE {{RFC8152}} may be used for 
+CS-RID MAC and COAP {{RFC7252}} for the CS-RID protocol.
 
 The following is a general representation of the content in the
 CS-RID messages.
 
 ~~~~
-         (   CS-RID MESSAGE TYPE,
-             CS-RID MESSAGE CONTENT,
-             CS-RID MAC)
+          (   
+              CS-RID MESSAGE TYPE,
+              CS-RID MESSAGE CONTENT,
+              CS-RID MAC
+          )
 
 ~~~~
 
@@ -420,19 +423,89 @@ The CS-RID MESSAGE CONTENT varies by MESSAGE TYPE.
 
 ## CS-RID MESSAGE TYPE {#CS-RID_MESSAGE_TYPE}
 
-The CS-RID MESSAGE TYPE is:
+The CS-RID MESSAGE TYPE is defined in {{csrid-message}}:
 
 ~~~~
-Number   CS-RID Message Type
-------   -----------------
-0        Reserved
-1        B-RID Forwarding
-2        Finder Registration
-3        SDSP Response
-4        Finder Location
+            Number   CS-RID Message Type
+            ------   -----------------
+            0        Reserved
+            1        B-RID Forwarding
+            2        Finder Registration
+            3        SDSP Response
+            4        Finder Location
 
 ~~~~
+{: #csrid-message}
 
+### CDDL description for CS-RID message type
+
+The overall CS-RID CDDL description is structured in {{csrid-object}}. 
+
+~~~~
+            CSRID_Object = {
+                application-context,
+                info                => info_message,
+                proxy_message       => broadcast_rid_proxy_message,
+                finder_registration => finder_registration_message,
+                sdsp_response       => sdsp_response_message,
+                location_update     => location_update_message,
+            }
+
+            info_message = {
+                common_message_members,
+                message_content => tstr,
+            }
+
+            common_message_members = (
+                message_type  => message_types,
+                mac_address   => #6.37(bstr),
+            )
+
+            message_types = &(
+                Reserved            : 0,
+                BRD                 : 1,
+                Finder-Registration : 2,
+                SDSP-Response       : 3,
+                Finder-Location     : 4,
+            )
+~~~~
+{: #csrid-object}
+
+The application context rule is defined in {{csrid-app-context}} for 
+CS-RID application identification and version negotiation. 
+
+~~~~
+            application-context = (
+                application => "DRIP-CSRID",
+                ? version => uint .size(1..2),
+            )
+~~~~
+{: #csrid-app-context}
+
+The predefined CDDL variables used in the specficiation is listed in {{csrid-variables}}.
+
+~~~~
+            application           = "application"
+            version               = "version"
+            info                  = "message_info"
+            proxy_message         = "proxy_message-type"
+            finder_registration   = "finder_registration"
+            sdsp_response         = "sdsp_response"
+            location_update       = "location_update"
+            rid                   = "id"
+            message_type          = "message_type"
+            mac_address           = "mac_address"
+            message_content       = "message_content"
+            timestamp             = "timestamp"
+            gps                   = "gps"
+            radio_type            = "radio_type"
+            broadcast_mac_address = "broadcast_mac_address"
+            broadcast_message     = "broadcast_message"
+            sdsp_id               = "sdsp_id"
+            proxy_status_type     = "proxy_status_type"
+            update_interval       = "update_interval"
+~~~~
+{: #csrid-variables}
 
 ## The CS-RID B-RID Proxy Message {#CSRID_proxy}
 
@@ -454,18 +527,18 @@ The following is a representation of the content in the CS-RID
 messages.
 
 ~~~~
-         (   CS-RID MESSAGE TYPE,
-             CS-RID ID,
-             RECEIVE TIMESTAMP,
-             RECEIVE GPS,
-             RECEIVE RADIO TYPE,
-             B-RID MAC ADDRESS,
-             B-RID MESSAGE,
-             CS-RID MAC)
+         (   
+            CS-RID MESSAGE TYPE,
+            CS-RID ID,
+            RECEIVE TIMESTAMP,
+            RECEIVE GPS,
+            RECEIVE RADIO TYPE,
+            B-RID MAC ADDRESS,
+            B-RID MESSAGE,
+            CS-RID MAC
+        )
 
 ~~~~
-
-
 
 ### CS-RID ID {#CS-RID_ID}
 
@@ -473,6 +546,40 @@ The CS-RID ID is the ID recognized by the SDSP.  This may be an
 HHIT [Hierarchical HITs](#hierarchical-hit), or any ID used by the SDSP.
 
 
+### CDDL description for CS-RID B-RID Proxy Message
+
+The broadcast CS-RID proxy CDDL is defined in {{csrid-brid-proxy}}
+
+~~~~
+            broadcast_rid_proxy_message = {
+                common_message_members,
+                rid                   => tstr,
+                timestamp             => tdate,
+                gps                   => gps-coordinates,
+                radio_type            => radio_types,
+                broadcast_mac_address => #6.37(bstr)
+                broadcast_message     => #6.37(bstr)
+            }
+
+            radio_types = &(
+                EFL : 0,
+                VLF : 1,
+                LF  : 2,
+                MF  : 3,
+                HF  : 4,
+                HF  : 5,
+                VHF : 6,
+                UHF : 7,
+                SHF : 8,
+                EHF : 9,
+            )
+
+            gps-coordinates = [
+                latitude : float,
+                longitude: float,
+            ]
+~~~~
+{: #csrid-brid-proxy}
 
 ## CS-RID Finder Registration {#CS-RID_Reg}
 
@@ -493,14 +600,33 @@ CS-RID B-RID Proxy Messages.  In this case the Finder Registration
 Message is:
 
 ~~~~
-         (   CS-RID MESSAGE TYPE,
-             CS-RID ID,
-             CS-RID TIMESTAMP,
-             CS-RID GPS,
-             CS-RID MAC)
+            (   
+                CS-RID MESSAGE TYPE,
+                CS-RID ID,
+                CS-RID TIMESTAMP,
+                CS-RID GPS,
+                CS-RID MAC
+            )
 
 ~~~~
 
+### CDDL description for Finder Registration
+The CDDL for CS-RID Finder Registration is defined in {{csrid-finder-registration}}
+
+~~~~
+            finder_registration_message = {
+                common_message_members,
+                rid       => tstr,
+                timestamp => tdate,
+                gps       => gps-coordinates,
+            }
+
+            gps-coordinates = [
+                latitude : float,
+                longitude: float,
+            ]
+~~~~
+{: #csrid-finder-registration}
 
 ## CS-RID SDSP Response {#SDSP_Reg_R}
 
@@ -508,12 +634,14 @@ The SDSP MAY respond to any Finder messages to instruct the Finder on its
 behavior.
 
 ~~~~
-         (   CS-RID MESSAGE TYPE,
-             SDSP ID,
-             CS-RID ID,
-             CS-RID PROXY STATUS,
-             CS-RID UPDATE INTERVAL,
-             CS-RID MAC)
+            (   
+                CS-RID MESSAGE TYPE,
+                SDSP ID,
+                CS-RID ID,
+                CS-RID PROXY STATUS,
+                CS-RID UPDATE INTERVAL,
+                CS-RID MAC
+            )
 
 ~~~~
 
@@ -522,6 +650,33 @@ B-RID messages, or suspend proxying and only report its location.
 
 The Update Interval is the frequency that the Finder SHOULD notify
 the SDSP of its current location using the Location Update message.
+
+
+### CDDL description for SDSP Response
+
+The CDDL for CS-RID SDSP response is defined in {{csrid-sdsp-response}}
+
+~~~~
+            sdsp_response_message = {
+                common_message_members,
+                sdsp_id           => tstr,
+                rid               => tstr,
+                proxy_status_type => proxy_status_types,
+                update_interval   => uint,
+            }
+
+            gps-coordinates = [
+                latitude : float,
+                longitude: float,
+            ]
+
+            proxy_status_types = &(
+                0: "forward",
+                1: "reverse",
+                2: "bi-directional",
+            )
+~~~~
+{: #csrid-sdsp-response}
 
 
 ## CS-RID Location Update {#CS-RID_Upd}
@@ -536,15 +691,34 @@ If the Finder has not recieved a SDSP Registration Response, a
 default of 5 minutes is used for the Update Interval.
 
 ~~~~
-         (   CS-RID MESSAGE TYPE,
-             CS-RID ID,
-             CS-RID TIMESTAMP,
-             CS-RID GPS,
-             CS-RID MAC)
+            (   
+                CS-RID MESSAGE TYPE,
+                CS-RID ID,
+                CS-RID TIMESTAMP,
+                CS-RID GPS,
+                CS-RID MAC
+            )
 
 ~~~~
 
+### CDDL description for Location Update
 
+The CDDL for CS-RID Location update is defined in {{csrid-location-update}}
+
+~~~~
+            location_update_message = {
+                common_message_members,
+                rid       => tstr,
+                timestamp => tdate,
+                gps       => gps-coordinates,
+            }
+
+            gps-coordinates = [
+                latitude : float,
+                longitude: float,
+            ]
+~~~~
+{: #csrid-location-update}
 
 # IANA Considerations {#IANA}
 
@@ -593,170 +767,6 @@ needed.  there are full-sky LIDAR for automotive use with ranges
 varying from 20M to 250M.  Would more than UA location information
 be available?  What information can be sent in a CS-RID message for
 such "unmarked" UAs?
-
-
-# CDDL (Normative)  {#cddl}
-
-The CDDL {{RFC8610}} specification for CS-RID message is listed in this appendix.
-
-The CS-RID MESSAGE TYPE is:
-
-~~~~
-; CDDL specification for Crowd source RID
-; It specifies a collection of CS message types
-;
-
-;
-; The CSRID overall data structure
-;
-CSRID_Object = {
-    application-context,
-    ? message_info          : message
-    ? proxy_message-type    : proxy_message,
-    ? finder_registration   : finder_registration,
-    ? sdsp_response         : sdsp_response,
-    ? location_update       : location_update,
-}
-
-;
-; Application context: general information about CSRID message (optional)
-;
-application-context = (
-    "application"   => "DRIP-CSRID",
-    ? "version"     => uint .size(1..2),
-)
-
-;
-; CSRID message general information
-;
-message = {
-    message_types,      ; message type (required)
-    message_content,    ; message content (required)
-    mac_address,        ; MAC address (required)
-}
-
-;
-; Broadcast RID proxy message
-;
-proxy_message = {
-    message_types,          ; message type (required)
-    id,                     ; rid   (required)
-    timestamp,              ; received timestamp (required)
-    gps,                    ; received GPS coordination (required)
-    radio_type,             ; received radio types (required)
-    broadcast_mac_address,  ; broadcast MAC address (required)
-    broadcast_message,      ; broadcast message (required)
-    mac_address,            ; MAC address (required)
-}
-
-; Finder Registration
-;
-
-finder_registration = {
-    message_types,  ; message type (required)
-    id,             ; rid (required)
-    timestamp,      ; timestamp (required)
-    gps,            ; GPS coordination (required)
-    mac_address,    ; MAC address (required)
-}
-
-; SDSP Response
-;
-sdsp_response = {
-    message_types,    ; message type (required)
-    sdsp_id,         ; SDSP ID (required)
-    id,              ; rid (required)
-    proxy_status,    ; proxy status (required)
-    update_interval, ; update internval (required)
-    mac_address,     ; MAC address
-}
-
-; Location update
-;
-location_update = {
-    message_types,   ; message types (required)
-    id,              ; rid (required)
-    timestamp,       ; timestamp (required)
-    gps,             ; GPS coordination (required)
-    mac_address,     ; MAC address (required)
-}
-
-;
-; Common rule definition
-;
-
-; ID definition, text string (required)
-id = ( id : tstr) ;
-
-; predefined message types
-message_types = (
-    "message_type" => message_type,
-)
-message_type = &message_type_all
-message_type_all = (
-    Reserved            : 0,
-    BRD                 : 1,
-    Finder-Registration : 2,
-    SDSP-Response       : 3,
-    Finder-Location     : 4,
-)
-
-; timestamp
-timestamp = (timestamp : tdate)
-
-; GPS coordination (required)
-gps = (GPS : [ coordination])
-coordination = (
-    lat: float,
-    long: float
-)
-
-; Radio types, choose from one of radio_types (required)
-radio_type = ( radio_type : radio_type_choice )
-radio_type_choice = &(
-    EFL : 0,
-    VLF : 1,
-    LF  : 2,
-    MF  : 3,
-    HF  : 4,
-    HF  : 5,
-    VHF : 6,
-    UHF : 7,
-    SHF : 8,
-    EHF : 9,
-)
-
-; Broadcast MAC address (required)
-broadcast_mac_address = (
-    broadcast_MAC_address :  #6.37(bstr)
-)
-
-; Broadcst message content (required)
-broadcast_message = ( broadcast_message : tstr )
-
-; MAC address
-mac_address = ( MAC_address: #6.37(bstr) )
-
-; Message content
-message_content = ( message_content: tstr)
-
-; SDDP ID
-sdsp_id = (sdsp_id : tstr)
-
-; Proxy status
-proxy_status = (status : proxy_status_choice)
-proxy_status_choice = &(
-    0: "forward",
-    1: "reverse",
-    2: "bi",
-)
-
-; Update Interval
-update_interval = (update_interval : uint)
-
-
-
-~~~~
 
 
 # Acknowledgments

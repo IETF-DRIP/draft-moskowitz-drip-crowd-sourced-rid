@@ -1878,7 +1878,7 @@ CSRID_Object = {
 ; Application context: general information about CSRID message (optional
 
 application-context = (
-    application =&gt; "DRIP-CSRID", ; why do you need this? you could tag the root structure and skip text values here?
+    application =&gt; "DRIP-CSRID", ; TBD: consider CBOR tag as replacement
     ? version =&gt; uint .size(1..2),
 )
 
